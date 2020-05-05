@@ -32,3 +32,4 @@ fetch("https://currency-exchange.p.rapidapi.com/exchange?q=1.0&from=SGD&to=MYR",
     //alert(elem.style.color);
     //alert(elem.style.fontSize);
 
+
