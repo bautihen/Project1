@@ -1,5 +1,22 @@
+<<<<<<< HEAD
 body{ background-image: url(https://atlantis.nyc3.digitaloceanspaces.com/styled/72025f140f22a3eb32950bbb9d76e68d);
       background-color: red;
+=======
+h1{
+    font-family:cursive;
+    font-weight: 900px;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing:0.2em;
+    word-spacing:0.5em;
+    color:blue ;
+    text-align: center;
+}
+
+body{
+     background-image: url(https://www.sustainability-times.com/wp-content/uploads/thumbs/Tourism-371emzvml7493dphpq91xc.jpg);
+     
+>>>>>>> 2026a9540ed5bfe838b5b2c6530332ff269e68b1
 
 
 }
