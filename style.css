@@ -2,29 +2,7 @@ body {
     background-color: #B2E1F3;
 }
 
-#flight-search{
-    margin-top: 10%;
-
-}
-
-#currency-exchange{
-    margin-top: 20%;
-
-}
-
-#support{
-    margin-top: 30%;
-
-}
-
-footer{
-    text-align: center;
-    margin-top: 100%;
-}
-
-
-
-h1{
+h1 {
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 900px;
     font-style: italic;
@@ -35,9 +13,28 @@ h1{
 }
 
 .navbar {
-     background-image: url(https://3.bp.blogspot.com/-7Y14mDmdP18/WJTdF1ryVZI/AAAAAAAAAAw/INSDZSBAHGwZ50eIbwnMgCs6X9ujDAKiACLcB/s1600/i3_20160203142344.jpg);
-     background-repeat: no-repeat;
-     background-size: 100%;
+    background-image: url(https://3.bp.blogspot.com/-7Y14mDmdP18/WJTdF1ryVZI/AAAAAAAAAAw/INSDZSBAHGwZ50eIbwnMgCs6X9ujDAKiACLcB/s1600/i3_20160203142344.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 
 
+#flight-search {
+    margin-top: 10%;
+
+}
+
+#currency-exchange {
+    margin-top: 20%;
+
+}
+
+#support {
+    margin-top: 30%;
+
+}
+
+footer {
+    text-align: center;
+    margin-top: 100%;
 }
