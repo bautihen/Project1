@@ -1,3 +1,7 @@
+body {
+    background-color: #B2E1F3;
+}
+
 #cheap-flights{
     margin-top: 10%;
 
@@ -13,15 +17,10 @@
 
 }
 
-#footer{
+footer{
     text-align: center;
     margin-top: 100%;
 }
-
-
-
-
-
 
 
 
@@ -35,9 +34,10 @@ h1{
     color:blue ;
 }
 
-body{
-     background-image: url(https://www.sustainability-times.com/wp-content/uploads/thumbs/Tourism-371emzvml7493dphpq91xc.jpg);
-     
+.navbar {
+     background-image: url(https://3.bp.blogspot.com/-7Y14mDmdP18/WJTdF1ryVZI/AAAAAAAAAAw/INSDZSBAHGwZ50eIbwnMgCs6X9ujDAKiACLcB/s1600/i3_20160203142344.jpg);
+     background-repeat: no-repeat;
+     background-size: 100%;
 
 
 }
