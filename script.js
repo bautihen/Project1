@@ -14,6 +14,8 @@ $("#flightform").on('submit', function (event) {
 })
 
 function citySearch(city) {
+	var airportContent = $("#airport-codes");
+	airportContent.empty();
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
 		"headers": {
@@ -26,7 +28,7 @@ function citySearch(city) {
 		})
 		.then(response => {
 			console.log(response)
-			var airportContent = $("#airport-codes");
+
 			var airRow = $("<select>")
 
 			airportContent.append(airRow);
