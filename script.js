@@ -11,16 +11,10 @@ $("#GetAirports").on('submit', function (event) {
 	// run the api call functions for once for each city
 	citySearch(departure, "departure"); // (2nd parameters are for future ID names)
 	citySearch(destination, "destination"); // ^^
-
-	// will run the above two functions while running below vvv
-
-	var airportSelectionButton = $("<input>"); // creating new input
-	airportSelectionButton.attr("type", "submit"); // it will be a submit form
-	airportSelectionButton.attr("value", "Get Prices"); // button name
-	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
-	var Airports = $("#Airports");
-	Airports.append(airportSelectionButton);
 })
+
+
+
 
 function citySearch(city, type) {
 	// call up the AirportCode section that we're about to add into
@@ -48,11 +42,25 @@ function citySearch(city, type) {
 			response.Places.forEach(place => {
 				airRow.attr("id", `airport-${type}`)
 				airRow.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
-			})
+
+			});
+			if (type === "destination") { return (done = true) };
+			if (done === true) { generateFinalButton(); }
+
 		})
 		.catch(err => {
 			console.log(err);
 		});
+}
+
+function generateFinalButton() {
+
+	var airportSelectionButton = $("<input>"); // creating new input
+	airportSelectionButton.attr("type", "submit"); // it will be a submit form
+	airportSelectionButton.attr("value", "Get Prices"); // button name
+	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
+	var airports = $("#Airports");
+	airports.append(airportSelectionButton);
 }
 
 
