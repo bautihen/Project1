@@ -12,13 +12,15 @@ $("#GetAirports").on('submit', function (event) {
 	var departure = $("#Departure").val();
 	var destination = $("#Destination").val();
 	// run the api call functions for once for each city
-	citySearch(departure, "Departure"); // (2nd parameters are for future ID names)
-	citySearch(destination, "Destination"); // ^^
-	generateFinalButton();
+	if (departure !== "" && destination !== "") { 
+		citySearch(departure, "Departure"); // (2nd parameters are for future ID names)
+		citySearch(destination, "Destination"); // ^^
+		generateFinalButton();
+	}
 })
 
 async function citySearch(city, type) {
-	
+
 	// call API for the ${city} query
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
@@ -67,10 +69,10 @@ function generateFinalButton() {
 }
 
 
-
 $("#AirportSelectionButton").on('submit', function (event) {
 	event.preventDefault();
 	console.log("boop");
+
 	//var departureAirport = $("#departure");
 
 	/*
