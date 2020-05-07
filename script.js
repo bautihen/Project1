@@ -3,7 +3,7 @@ var departure;
 var destination;
 
 // submit button is attached the div with ID: flightform
-$("#GetAirport").on('submit', function (event) {
+$("#GetAirports").on('submit', function (event) {
 	event.preventDefault();
 	// get user inputs of cities
 	var departure = $("#Departure").val();
@@ -12,20 +12,22 @@ $("#GetAirport").on('submit', function (event) {
 	citySearch(departure, "departure"); // (2nd parameters are for future ID names)
 	citySearch(destination, "destination"); // ^^
 
+	// will run the above two functions while running below vvv
+
 	var airportSelectionButton = $("<input>"); // creating new input
 	airportSelectionButton.attr("type", "submit"); // it will be a submit form
-	airportSelectionButton.attr("value", "Get Prices");
-	airportSelectionButton.attr("id", "AirportSelectionButton");
-	var airportContent = $("#AirportCodes");
-	airportContent.append(airportSelectionButton);
+	airportSelectionButton.attr("value", "Get Prices"); // button name
+	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
+	var Airports = $("#Airports");
+	Airports.append(airportSelectionButton);
 })
 
 function citySearch(city, type) {
-	// call up the AirportCode section that we're about to change
-	var airportContent = $("#AirportCodes");
+	// call up the AirportCode section that we're about to add into
+	var Airports = $("#Airports");
 	// empty out the section for the new incoming stuff
-	airportContent.empty();
-	// 
+	Airports.empty();
+	// call API for the ${city} query
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
 		"headers": {
@@ -37,11 +39,12 @@ function citySearch(city, type) {
 			return response.json();
 		})
 		.then(response => {
+			// we will be making a dropdown menu for user to select the airport of the city
 			console.log(response)
-
+			// creating a select element
 			var airRow = $("<select>")
 
-			airportContent.append(airRow);
+			Airports.append(airRow);
 			response.Places.forEach(place => {
 				airRow.attr("id", `airport-${type}`)
 				airRow.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
