@@ -37,16 +37,9 @@ h1 {
     background-size: 100%;
 }
 
-
-#flight-search {
-    margin-top: 10%;
-}
-
 #currency-exchange {
     margin-top: 10%;
 }
-
-
 
 body{
      background-color:rgb(203, 240, 255); 
@@ -71,6 +64,7 @@ body{
     padding-bottom: 50px;
 
 }
+
 .container{
        margin-top: 50px;
        margin-left: 200px;
