@@ -2,7 +2,8 @@
 var departure;
 var destination;
 var airports = $("#Airports");
-var airportsContainer = $("<section>");
+var cityAirports = $("<form>");
+var airportsContainer = $("<figure>");
 var cheapFlights = $("#CheapFlights");
 
 // submit button is attached the div with ID: flightform
@@ -40,21 +41,23 @@ async function citySearch(city, type) {
 			console.log(response)
 
 			// we will be making a dropdown menu for user to select the airport of the city
+			
+			airportsContainer.append(cityAirports);
 			// creating a select element
-			var cityAirports = $("<select>")
+			var chooseAirport = $("<select>")
 			// appending it to the "airports" area of page
-			airportsContainer.prepend(cityAirports);
+			cityAirports.prepend(chooseAirport);
 			// for each place (airport)
 			response.Places.forEach(place => {
 				// give the airport selection menu an ID named after city
-				cityAirports.attr("id", `${type}Airports`)
+				chooseAirport.attr("id", `${type}Airports`)
 				// value for each selection is the Place ID, name shown is PlaceName
-				cityAirports.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
+				chooseAirport.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
 			});
 			//this heading is for user to know what they are selecting
 			var selectAirport = $("<h4>");
 			selectAirport.text(`Select ${type} City's Airport`);
-			airportsContainer.prepend(selectAirport);
+			cityAirports.prepend(selectAirport);
 		})
 		.catch(err => {
 			console.log(err);
@@ -62,23 +65,21 @@ async function citySearch(city, type) {
 }
 
 function generateFinalButton() {
-	
-	var airports = $("#Airports"); // the form we will be adding the button to
 	var airportSelectionButton = $("<input>"); // creating new input
 	airportSelectionButton.attr("type", "submit"); // it will be a submit button
 	airportSelectionButton.attr("value", "Get Prices"); // button name
 	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
 
-	airportsContainer.append($("<br>"));
-	airportsContainer.append($("<br>"));
-	airportsContainer.append(airportSelectionButton); // stick that button on!
+	cityAirports.append($("<br>"));
+	cityAirports.append($("<br>"));
+	cityAirports.append(airportSelectionButton); // stick that button on!
 }
 
 
 $("#AirportSelectionButton").on('submit', function (event) {
-	event.preventDefault();
-	console.log("boop");
 
+	console.log("boop");
+});
 	//var departureAirport = $("#departure");
 
 	/*
@@ -99,7 +100,7 @@ $("#AirportSelectionButton").on('submit', function (event) {
 			.catch(err => {
 				console.log(err);
 			}); */
-})
+
 
 function currencyExchange() {
 	fetch("https://currency-exchange.p.rapidapi.com/exchange?q=1.0&from=SGD&to=MYR", {
