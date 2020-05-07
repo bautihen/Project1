@@ -3,13 +3,15 @@ var destination;
 
 $("#flightform").on('submit', function (event) {
 	event.preventDefault();
-	citySearch($("#departure").val());
-	citySearch($("#destination").val());
+	var departure = $("#departure").val();
+	var destination = $("#destination").val();
+	citySearch(departure);
+	citySearch(destination);
 	var airportSelectionButton = $("<input>");
-	var airportContent = $("#airport-codes");
 	airportSelectionButton.attr("type", "submit");
 	airportSelectionButton.attr("value", "Get Prices");
 	airportSelectionButton.attr("id", "airportSelectionButton");
+	var airportContent = $("#airport-codes");
 	airportContent.append(airportSelectionButton);
 })
 
@@ -46,6 +48,7 @@ function citySearch(city) {
 
 $("#airportSelectionButton").on('submit', function (event) {
 	event.preventDefault();
+	console.log("boop");
 	var departureAirport = $("#departure");
 
 
