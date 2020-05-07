@@ -1,6 +1,8 @@
+// we'll need two variables, one for each city on each end of the flight
 var departure;
 var destination;
 
+// submit button is attached the div with ID: flightform
 $("#flightform").on('submit', function (event) {
 	event.preventDefault();
 	var departure = $("#departure").val();
@@ -46,12 +48,12 @@ function citySearch(city, type) {
 
 
 
-$("#airportSelectionButton").on('submit', function (event) {
+ $("#airportSelectionButton").on('submit', function (event) {
 	event.preventDefault();
 	console.log("boop");
-	var departureAirport = $("#departure");
+	//var departureAirport = $("#departure");
 
-
+/*
 
 	fetch("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2020-05-07?inboundpartialdate=2020-06-01", {
 		"method": "GET",
@@ -68,8 +70,8 @@ $("#airportSelectionButton").on('submit', function (event) {
 		})
 		.catch(err => {
 			console.log(err);
-		});
-})
+		}); */
+}) 
 
 function currencyExchange() {
 	fetch("https://currency-exchange.p.rapidapi.com/exchange?q=1.0&from=SGD&to=MYR", {
