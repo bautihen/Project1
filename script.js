@@ -15,10 +15,11 @@ function destinationSearch(city) {
 		.then(response => {
 			console.log(response)
 			var airportContent = $("#airport-codes");
-			var airRow = $("<div>")
+			var airRow = $("<select>")
+			airRow.attr("id", "airport-picker")
 			airportContent.append(airRow);
 			response.Places.forEach(place => {
-				airRow.append(`<div class='col-md-6'>${place.PlaceId}</div>`);
+				airRow.append(`<option value="${place.PlaceName}">${place.PlaceName}</option>`);
 			})
 		}).catch(err => {
 			console.log(err);
