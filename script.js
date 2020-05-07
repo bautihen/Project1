@@ -2,6 +2,8 @@
 var departure;
 var destination;
 var airports = $("#Airports");
+var airportsContainer = $("<section>");
+var cheapFlights = $("#CheapFlights");
 
 // submit button is attached the div with ID: flightform
 $("#GetAirports").on('submit', function (event) {
@@ -20,7 +22,9 @@ $("#GetAirports").on('submit', function (event) {
 })
 
 async function citySearch(city, type) {
-
+	airportsContainer.attr("id", "AirportsContainer");
+	airportsContainer.attr("class", "container");
+	cheapFlights.append(airportsContainer);
 	// call API for the ${city} query
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
@@ -39,7 +43,7 @@ async function citySearch(city, type) {
 			// creating a select element
 			var cityAirports = $("<select>")
 			// appending it to the "airports" area of page
-			airports.prepend(cityAirports);
+			airportsContainer.prepend(cityAirports);
 			// for each place (airport)
 			response.Places.forEach(place => {
 				// give the airport selection menu an ID named after city
@@ -50,7 +54,7 @@ async function citySearch(city, type) {
 			//this heading is for user to know what they are selecting
 			var selectAirport = $("<h4>");
 			selectAirport.text(`Select ${type} City's Airport`);
-			airports.prepend(selectAirport);
+			airportsContainer.prepend(selectAirport);
 		})
 		.catch(err => {
 			console.log(err);
@@ -58,14 +62,16 @@ async function citySearch(city, type) {
 }
 
 function generateFinalButton() {
+	
 	var airports = $("#Airports"); // the form we will be adding the button to
 	var airportSelectionButton = $("<input>"); // creating new input
 	airportSelectionButton.attr("type", "submit"); // it will be a submit button
 	airportSelectionButton.attr("value", "Get Prices"); // button name
 	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
 
-	airports.append($("<br>"));
-	airports.append(airportSelectionButton); // stick that button on!
+	airportsContainer.append($("<br>"));
+	airportsContainer.append($("<br>"));
+	airportsContainer.append(airportSelectionButton); // stick that button on!
 }
 
 
