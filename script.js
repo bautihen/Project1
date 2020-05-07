@@ -3,12 +3,14 @@ var departure;
 var destination;
 
 // submit button is attached the div with ID: flightform
-$("#flightform").on('submit', function (event) {
+$("#GetAirport").on('submit', function (event) {
 	event.preventDefault();
+
 	var departure = $("#departure").val();
 	var destination = $("#destination").val();
 	citySearch(departure, "departure");
 	citySearch(destination, "destination");
+	
 	var airportSelectionButton = $("<input>");
 	airportSelectionButton.attr("type", "submit");
 	airportSelectionButton.attr("value", "Get Prices");
@@ -18,7 +20,7 @@ $("#flightform").on('submit', function (event) {
 })
 
 function citySearch(city, type) {
-	var airportContent = $("#airport-codes");
+	var airportContent = $("#AirportCodes");
 	airportContent.empty();
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
