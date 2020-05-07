@@ -1,21 +1,16 @@
-
-
-#cheap-flights{
+#cheap-flights {
     margin-top: 10%;
-
 }
 
-#currency-exchange{
+#currency-exchange {
     margin-top: 20%;
-
 }
 
-#support{
+#support {
     margin-top: 5%;
-
 }
 
-footer{
+footer {
     text-align: center;
     margin-top: 100%;
 }
@@ -37,17 +32,11 @@ h1 {
     background-size: 100%;
 }
 
-#currency-exchange {
-    margin-top: 10%;
-}
-
-body{
-     background-color:rgb(203, 240, 255); 
-     
+body {
+     background-color:rgb(203, 240, 255);
     }
 
-
-.box-1{ 
+.box-1 { 
     background-image:url(https://im6.ezgif.com/tmp/ezgif-6-0af340cce27e.gif) ;
     color:rgb(17, 45, 99);
     font-style: italic;
@@ -62,12 +51,12 @@ body{
     padding-right: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
-
 }
 
-.container{
+.container {
        margin-top: 50px;
        margin-left: 200px;
        font-size: 20px;
        color: black;
        font-weight: bold;
+}

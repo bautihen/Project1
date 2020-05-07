@@ -31,7 +31,7 @@
             <a class="nav-link" href="#cheap-flights">Cheap Flights</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#flights-at-different-currency-exchange">Flights at Different Currency
+            <a class="nav-link" href="#currency-exchange">Flights at Different Currency
               Exchange</a>
           </li>
           <li class="nav-item">
@@ -44,46 +44,23 @@
       <h1>Your Destination Awaits</h1>
     </div>
   </header>
+
   <main class="container">
-    <section id="flight-search" class="container">
+    <section id="cheap-flights" class="container">
+      <form class="form" id="flightform">
+        <label for="departure">Departure City</label>
+        <input id="departure" type="text">
+        <label for="destination">Destination City</label>
+        <input id="destination" type="text">
+        <input id="search" type="submit" value="Search">
+      </form>
 
-      <div id="cheap-flights">
-        <form class="form" id="flightform">
-
-          <label for="departure">Departure City</label>
-          <input id="departure" type="text">
-          <label for="destination">Destination City</label>
-          <input id="destination" type="text">
-          <input id="search" type="submit" value="Search">
-        </form>
-
-        <form id="airport-codes" class="form"></form>
-        ​
-      </div>
-    </section>
-    ​
-    <div class="content">
-      <div id="flights-at-different-currency-exchange" class="flights-at-different-currency-exchange">
-        <h2>Flights at Different Curency Exchange</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, recusandae.
-        </p>
-      </div>
+      <form id="airport-codes" class="form"></form>
       ​
-      <div id="Support" class="Support">
-        <h2>Support</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nihil blanditiis?
-        </p>
-      </div>
-    </div>
-    ​
-    ​
-    ​
-
     </section>
 
     <section id="currency-exchange" class="container">
+      <h2>Flights at Different Curency Exchange</h2>
       <label for="currency-picker">Choose A Currency:</label>
       <select id="currency-picker">
         <option value="USD">USD</option>
@@ -94,13 +71,22 @@
     </section>
 
     <section id="support" class="container">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nihil blanditiis?
+      <h2>Support</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nihil blanditiis?
+      </p>
     </section>
 
   </main>
+  ​
 
   ​
-  ​
+  <footer>
+    <h2>Made with ❤️️ by Flight Finder</h2>
+    <p>
+      &copy; 2020 Flight Finder Services, Inc.
+    </p>
+  </footer>
   ​
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -115,16 +101,6 @@
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
   ​
-  ​
-  <footer>
-    <h2>Made with ❤️️ by Flight Finder</h2>
-    <p>
-      &copy; 2020 Flight Finder Services, Inc.
-    </p>
-  </footer>
-  ​
-  ​
 </body>
-​
 
 </html>
