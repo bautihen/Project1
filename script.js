@@ -2,7 +2,6 @@ var departure;
 var destination;
 
 function destinationSearch(city) {
-	console.log(city)
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
 		"headers": {
@@ -19,7 +18,6 @@ function destinationSearch(city) {
 			var airRow = $("<div>")
 			airportContent.append(airRow);
 			response.Places.forEach(place => {
-				console.log(place)
 				airRow.append(`<div class='col-md-6'>${place.PlaceId}</div>`);
 			})
 		}).catch(err => {
@@ -29,9 +27,7 @@ function destinationSearch(city) {
 $("#flightform").on('submit', function (event) {
 	event.preventDefault();
 	destinationSearch($("#departure").val());
-	console.log($("#departure").val());
 	destinationSearch($("#destination").val());
-	console.log($("#destination").val());
 })
 
 function currencyExchange() {
