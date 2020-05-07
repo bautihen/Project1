@@ -2,7 +2,7 @@
 var departure;
 var destination;
 var airports = $("#Airports");
-var cityAirports = $("<form>");
+var selectAirports = $("<form>");
 var airportsContainer = $("<figure>");
 var cheapFlights = $("#CheapFlights");
 
@@ -41,12 +41,15 @@ async function citySearch(city, type) {
 			console.log(response)
 
 			// we will be making a dropdown menu for user to select the airport of the city
+			selectAirports.attr("id", "SelectAirports");
+			selectAirports.attr("class", "form");
+			airportsContainer.append(selectAirports);
+
 			
-			airportsContainer.append(cityAirports);
 			// creating a select element
 			var chooseAirport = $("<select>")
 			// appending it to the "airports" area of page
-			cityAirports.prepend(chooseAirport);
+			selectAirports.prepend(chooseAirport);
 			// for each place (airport)
 			response.Places.forEach(place => {
 				// give the airport selection menu an ID named after city
@@ -57,7 +60,7 @@ async function citySearch(city, type) {
 			//this heading is for user to know what they are selecting
 			var selectAirport = $("<h4>");
 			selectAirport.text(`Select ${type} City's Airport`);
-			cityAirports.prepend(selectAirport);
+			selectAirports.prepend(selectAirport);
 		})
 		.catch(err => {
 			console.log(err);
@@ -65,21 +68,23 @@ async function citySearch(city, type) {
 }
 
 function generateFinalButton() {
-	var airportSelectionButton = $("<input>"); // creating new input
-	airportSelectionButton.attr("type", "submit"); // it will be a submit button
-	airportSelectionButton.attr("value", "Get Prices"); // button name
+	var airportSelectionButton = $("<button>"); // creating new input
+	airportSelectionButton.text("Get Prices");
 	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
+	airportSelectionButton.attr("onClick", onClick());
 
-	cityAirports.append($("<br>"));
-	cityAirports.append($("<br>"));
-	cityAirports.append(airportSelectionButton); // stick that button on!
+	selectAirports.append($("<br>"));
+	selectAirports.append($("<br>"));
+	selectAirports.append(airportSelectionButton); // stick that button on!
 }
 
 
-$("#AirportSelectionButton").on('submit', function (event) {
-
-	console.log("boop");
-});
+ function onClick() {
+	var departureAirport = $("#DepartureAirports").val();
+	var destinationAirport = $("#DestinationAirports").val();
+	console.log(departureAirport);
+	console.log(destinationAirport);
+};
 	//var departureAirport = $("#departure");
 
 	/*
