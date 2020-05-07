@@ -6,16 +6,16 @@ var destination;
 $("#GetAirport").on('submit', function (event) {
 	event.preventDefault();
 
-	var departure = $("#departure").val();
-	var destination = $("#destination").val();
+	var departure = $("#Departure").val();
+	var destination = $("#Destination").val();
 	citySearch(departure, "departure");
 	citySearch(destination, "destination");
 	
 	var airportSelectionButton = $("<input>");
 	airportSelectionButton.attr("type", "submit");
 	airportSelectionButton.attr("value", "Get Prices");
-	airportSelectionButton.attr("id", "airportSelectionButton");
-	var airportContent = $("#airport-codes");
+	airportSelectionButton.attr("id", "AirportSelectionButton");
+	var airportContent = $("#AirportCodes");
 	airportContent.append(airportSelectionButton);
 })
 
@@ -50,7 +50,7 @@ function citySearch(city, type) {
 
 
 
- $("#airportSelectionButton").on('submit', function (event) {
+ $("#AirportSelectionButton").on('submit', function (event) {
 	event.preventDefault();
 	console.log("boop");
 	//var departureAirport = $("#departure");
