@@ -9,8 +9,8 @@ $("#GetAirports").on('submit', function (event) {
 	var departure = $("#Departure").val();
 	var destination = $("#Destination").val();
 	// run the api call functions for once for each city
-	citySearch(departure, "departure"); // (2nd parameters are for future ID names)
-	citySearch(destination, "destination"); // ^^
+	citySearch(departure, "Departure"); // (2nd parameters are for future ID names)
+	citySearch(destination, "Destination"); // ^^
 })
 
 
@@ -18,9 +18,9 @@ $("#GetAirports").on('submit', function (event) {
 
 function citySearch(city, type) {
 	// call up the AirportCode section that we're about to add into
-	var Airports = $("#Airports");
+	var airports = $("#Airports");
 	// empty out the section for the new incoming stuff
-	Airports.empty();
+	airports.empty();
 	// call API for the ${city} query
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
@@ -35,17 +35,26 @@ function citySearch(city, type) {
 		.then(response => {
 			// we will be making a dropdown menu for user to select the airport of the city
 			console.log(response)
+			var departureCity = $("<h4>");
+			departureCity.text(`Select ${type} City's Airport`);
+			airports.append(departureCity);
+
+
 			// creating a select element
-			var airRow = $("<select>")
-
-			Airports.append(airRow);
+			var cityAirports = $("<select>")
+			// appending it to the "airports" area of page
+			airports.append(cityAirports);
+			// for each place (airport)
 			response.Places.forEach(place => {
-				airRow.attr("id", `airport-${type}`)
-				airRow.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
+				// give the airport selection menu an ID named after city
+				cityAirports.attr("id", `${type}Airports`)
+				// value for each selection is the Place ID, name shown is PlaceName
+				cityAirports.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
 
-			});
-			if (type === "destination") { return (done = true) };
-			if (done === true) { generateFinalButton(); }
+			}); 
+			// this should put the button after the dropdown menus hopefully
+			if (type === "Destination") { return (done = true) }; // makes sure its the 2nd time
+			if (done === true) { generateFinalButton(); } // hopefully puts this part to the true last
 
 		})
 		.catch(err => {
@@ -54,13 +63,12 @@ function citySearch(city, type) {
 }
 
 function generateFinalButton() {
-
+	var airports = $("#Airports"); // the form we will be adding the button to
 	var airportSelectionButton = $("<input>"); // creating new input
-	airportSelectionButton.attr("type", "submit"); // it will be a submit form
+	airportSelectionButton.attr("type", "submit"); // it will be a submit button
 	airportSelectionButton.attr("value", "Get Prices"); // button name
 	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
-	var airports = $("#Airports");
-	airports.append(airportSelectionButton);
+	airports.append(airportSelectionButton); // stick that button on!
 }
 
 
