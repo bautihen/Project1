@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en">
-
+​
 <head>
   <title>Title</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+​
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
-
+​
 <body>
   <header>
     
@@ -22,14 +22,15 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+​
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#cheap-flights">Cheap Flights</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="flights-at-different-currency-exchange">Flights at Different Currency Exchange</a>
+            <a class="nav-link" href="#flights-at-different-currency-exchange">Flights at Different Currency
+              Exchange</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#Support">Support</a>
@@ -43,13 +44,42 @@
   </header>
   <main class="container">
     <section id="flight-search" class="container">
-        <form>
+
+      <div id="cheap-flights">
+        <form class="form" id="flightform">
+
           <label for="departure">Departure City</label>
           <input id="departure" type="text">
           <label for="destination">Destination City</label>
           <input id="destination" type="text">
           <input id="search" type="submit" value="Search">
         </form>
+
+        <div id="airport-codes" class="container row">
+​
+        </div>
+      </div> 
+    </section>
+​
+    <div class="content">
+      <div id="flights-at-different-currency-exchange" class="flights-at-different-currency-exchange">
+        <h2>Flights at Different Curency Exchange</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, recusandae.
+        </p>
+      </div>
+​
+      <div id="Support" class="Support">
+        <h2>Support</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nihil blanditiis?
+        </p>
+      </div>
+    </div>
+​
+​
+​
+
     </section>
 
     <section id="currency-exchange" class="container">
@@ -65,12 +95,12 @@
       <section id="support" class="container">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nihil blanditiis?
       </section>
-      
 
   </main>
 
-
-
+​
+​
+​
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -83,16 +113,16 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
-
-
+​
+​
   <footer>
     <h2>Made with ❤️️ by Flight Finder</h2>
     <p>
       &copy; 2020 Flight Finder Services, Inc.
     </p>
   </footer>
-
-
+​
+​
 </body>
-
+​
 </html>

@@ -1,7 +1,7 @@
 
+
 #cheap-flights{
     margin-top: 10%;
-   
 
 }
 
@@ -11,7 +11,15 @@
 }
 
 #support{
-    margin-top: 30%;
+    margin-top: 5%;
+
+}
+
+footer{
+    text-align: center;
+    margin-top: 100%;
+
+
 
 
 h1 {
@@ -39,16 +47,6 @@ h1 {
     margin-top: 10%;
 }
 
-#support {
-    margin-top: 10%;
-
-}
-
-#footer{
-    text-align: center;
-
-    margin-top: 100%;
-}
 
 
 body{
