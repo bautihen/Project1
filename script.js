@@ -1,10 +1,13 @@
 // we'll need two variables, one for each city on each end of the flight
 var departure;
 var destination;
+var airports = $("#Airports");
 
 // submit button is attached the div with ID: flightform
 $("#GetAirports").on('submit', function (event) {
 	event.preventDefault();
+	// empty out the section for the new incoming stuff
+	airports.empty();
 	// get user inputs of cities
 	var departure = $("#Departure").val();
 	var destination = $("#Destination").val();
@@ -14,14 +17,8 @@ $("#GetAirports").on('submit', function (event) {
 	generateFinalButton();
 })
 
-
-
-
 async function citySearch(city, type) {
-	// call up the AirportCode section that we're about to add into
-	var airports = $("#Airports");
-	// empty out the section for the new incoming stuff
-	airports.empty();
+	
 	// call API for the ${city} query
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
 		"method": "GET",
@@ -34,10 +31,9 @@ async function citySearch(city, type) {
 			return response.json();
 		})
 		.then(response => {
-			// we will be making a dropdown menu for user to select the airport of the city
 			console.log(response)
-			
 
+			// we will be making a dropdown menu for user to select the airport of the city
 			// creating a select element
 			var cityAirports = $("<select>")
 			// appending it to the "airports" area of page
@@ -48,9 +44,9 @@ async function citySearch(city, type) {
 				cityAirports.attr("id", `${type}Airports`)
 				// value for each selection is the Place ID, name shown is PlaceName
 				cityAirports.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
-
-				
-			});var selectAirport = $("<h4>");
+			});
+			//this heading is for user to know what they are selecting
+			var selectAirport = $("<h4>");
 			selectAirport.text(`Select ${type} City's Airport`);
 			airports.prepend(selectAirport);
 		})
