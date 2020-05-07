@@ -1,6 +1,6 @@
 var departure;
 var destination;
-​
+
 function destinationSearch(city) {
 	console.log(city)
 	fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/?query=${city}`, {
@@ -25,25 +25,26 @@ function destinationSearch(city) {
 		}).catch(err => {
 			console.log(err);
 		});
-	}
-	$("#flightform").on('submit', function (event) {
-		event.preventDefault();
-		destinationSearch($("#departure").val());
-		destinationSearch($("#destination").val());
+}
+$("#flightform").on('submit', function (event) {
+	event.preventDefault();
+	destinationSearch($("#departure").val());
+	console.log($("#departure").val());
+	destinationSearch($("#destination").val());
+	console.log($("#destination").val());
+})
+
+function currencyExchange() {
+	fetch("https://currency-exchange.p.rapidapi.com/exchange?q=1.0&from=SGD&to=MYR", {
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "currency-exchange.p.rapidapi.com",
+			"x-rapidapi-key": "ee974abcfbmsh2bbdc194e450a08p14b169jsnf711e272c365"
+		}
 	})
-​
-	function currencyExchange() {
-		fetch("https://currency-exchange.p.rapidapi.com/exchange?q=1.0&from=SGD&to=MYR", {
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "currency-exchange.p.rapidapi.com",
-				"x-rapidapi-key": "ee974abcfbmsh2bbdc194e450a08p14b169jsnf711e272c365"
-			}
-		})
-			.then(response => response.json())
-			.then(response => console.log(response))
-			.catch(err => {
-				console.log(err);
-			});
-	}
-	
+		.then(response => response.json())
+		.then(response => console.log(response))
+		.catch(err => {
+			console.log(err);
+		});
+}
