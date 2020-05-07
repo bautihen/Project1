@@ -11,12 +11,13 @@ $("#GetAirports").on('submit', function (event) {
 	// run the api call functions for once for each city
 	citySearch(departure, "Departure"); // (2nd parameters are for future ID names)
 	citySearch(destination, "Destination"); // ^^
+	generateFinalButton();
 })
 
 
 
 
-function citySearch(city, type) {
+async function citySearch(city, type) {
 	// call up the AirportCode section that we're about to add into
 	var airports = $("#Airports");
 	// empty out the section for the new incoming stuff
@@ -35,15 +36,12 @@ function citySearch(city, type) {
 		.then(response => {
 			// we will be making a dropdown menu for user to select the airport of the city
 			console.log(response)
-			var departureCity = $("<h4>");
-			departureCity.text(`Select ${type} City's Airport`);
-			airports.append(departureCity);
-
+			
 
 			// creating a select element
 			var cityAirports = $("<select>")
 			// appending it to the "airports" area of page
-			airports.append(cityAirports);
+			airports.prepend(cityAirports);
 			// for each place (airport)
 			response.Places.forEach(place => {
 				// give the airport selection menu an ID named after city
@@ -51,11 +49,10 @@ function citySearch(city, type) {
 				// value for each selection is the Place ID, name shown is PlaceName
 				cityAirports.append(`<option value="${place.PlaceId}">${place.PlaceName}</option>`);
 
-			}); 
-			// this should put the button after the dropdown menus hopefully
-			if (type === "Destination") { return (done = true) }; // makes sure its the 2nd time
-			if (done === true) { generateFinalButton(); } // hopefully puts this part to the true last
-
+				
+			});var selectAirport = $("<h4>");
+			selectAirport.text(`Select ${type} City's Airport`);
+			airports.prepend(selectAirport);
 		})
 		.catch(err => {
 			console.log(err);
@@ -68,6 +65,8 @@ function generateFinalButton() {
 	airportSelectionButton.attr("type", "submit"); // it will be a submit button
 	airportSelectionButton.attr("value", "Get Prices"); // button name
 	airportSelectionButton.attr("id", "AirportSelectionButton"); // button ID
+
+	airports.append($("<br>"));
 	airports.append(airportSelectionButton); // stick that button on!
 }
 
