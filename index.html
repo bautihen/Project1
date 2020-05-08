@@ -1,111 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="#">Flight Finder</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#CheapFlights">Cheap Flights</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#flights-at-different-currency-exchange">Flights at Different Currency
-              Exchange</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Support">Support</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="hero-image">
-      <h1>Your Destination Awaits</h1>
-    </div>
-  </header>
-  <main class="container">
-    <section id="flight-search" class="container">
-      <div id="CheapFlights">
-        <form class="form" id="GetAirports">
-          <label for="Departure">Departure City</label>
-          <input id="Departure" type="text">
-          <label for="Destination">Destination City</label>
-          <input id="Destination" type="text">
-          <input id="search" type="submit" value="Search">
-        </form>
-        <div id="Airports" class="container">
-        </div>
-      </div>
-    </section>
-    <div class="card">
-      <div id="flights-at-different-currency-exchange" class="flights-at-different-currency-exchange">
-        <img
-          src="https://www.obsidiancapital.co.za/wp-content/uploads/2019/09/Rand-hasnt-been-weak-yet.-Feature-Image.png"
-          alt="currency-exchange" style="width:100%;">
-        <h2>Flights at Different Currency Exchange</h2>
-        <p>
-          Change the currency to match where ever you are.
-        </p>
-        <section id="currency-exchange" class="container">
-          <label for="currency-picker">Choose A Currency:</label>
-          <select id="currency-picker">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-            <option value="JPY">JPY</option>
-          </select>
-        </section>
-      </div>
-    </div>
-    <div class="card-2">
-      <div id="Support" class="Support">
-        <img src="https://www.chawadi.com/wp-content/uploads/2019/12/support-0.jpg" alt="support" style="width:100%">
-        <h2>Support</h2>
-        <p>
-          Need help? Click here!
-        </p>
-      </div>
-    </div>
-  </main>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-  <footer>
-    <h2>Made with ❤️️ by Flight Finder</h2>
-    <p>
-      &copy; 2020 Flight Finder Services, Inc.
-    </p>
-  </footer>
-</body>
-
-</html>
-=======
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -158,10 +53,12 @@
             <input id="search" type="submit" value="Search">
           </form>
   
-          <div id="airport-codes" class="container row">
+          <div id="airport-codes">
   ​
           </div>
+          
         </div> 
+        <div id="displayUSDPrice" style="text-align: center;"></div>
       </section>
   ​
       <div class="card">
@@ -174,11 +71,12 @@
           <section id="currency-exchange" class="container">
             <label for="currency-picker">Choose A Currency:</label>
             <select id="currency-picker">
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
+              <option value="none">Select A Currency</option>
+              <option value="CNY">CNY</option>
               <option value="GBP">GBP</option>
               <option value="JPY">JPY</option>
             </select>
+            <div id="displayConversion"></div>
          </section>
         </div>
       </div>
