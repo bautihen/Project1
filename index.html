@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Flight Finder</title>
+  <title>Title</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +26,7 @@
             <a class="nav-link" href="#CheapFlights">Cheap Flights</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#CurrencyExchange">Flights at Different Currency
+            <a class="nav-link" href="#flights-at-different-currency-exchange">Flights at Different Currency
               Exchange</a>
           </li>
           <li class="nav-item">
@@ -35,44 +35,54 @@
         </ul>
       </div>
     </nav>
-    <div class="box-1">
+    <div class="hero-image">
       <h1>Your Destination Awaits</h1>
     </div>
   </header>
-  <!-- App begins here -->
   <main class="container">
-    <section id="CheapFlights" class="container">
-      <form class="form" id="GetAirports">
-        <label for="departure">Departure City</label>
-        <input id="Departure" type="text">
-        <label for="destination">Destination City</label> 
-        <input id="Destination" type="text">
-        <input id="Search" type="submit" value="Search">
-      </form>
+    <section id="flight-search" class="container">
+      <div id="CheapFlights">
+        <form class="form" id="GetAirports">
+          <label for="Departure">Departure City</label>
+          <input id="Departure" type="text">
+          <label for="Destination">Destination City</label>
+          <input id="Destination" type="text">
+          <input id="search" type="submit" value="Search">
+        </form>
+        <div id="Airports" class="container">
+        </div>
+      </div>
     </section>
-    <section id="CurrencyExchange" class="container">
-      <h2>Flights at Different Curency Exchange</h2>
-      <label for="CurrencyPicker">Choose A Currency:</label>
-      <select id="CurrencyPicker">
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
-        <option value="JPY">JPY</option>
-      </select>
-    </section>
-    <section id="Support" class="container">
-      <h2>Support</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, nihil blanditiis?
-      </p>
-    </section>
+    <div class="card">
+      <div id="flights-at-different-currency-exchange" class="flights-at-different-currency-exchange">
+        <img
+          src="https://www.obsidiancapital.co.za/wp-content/uploads/2019/09/Rand-hasnt-been-weak-yet.-Feature-Image.png"
+          alt="currency-exchange" style="width:100%;">
+        <h2>Flights at Different Currency Exchange</h2>
+        <p>
+          Change the currency to match where ever you are.
+        </p>
+        <section id="currency-exchange" class="container">
+          <label for="currency-picker">Choose A Currency:</label>
+          <select id="currency-picker">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="JPY">JPY</option>
+          </select>
+        </section>
+      </div>
+    </div>
+    <div class="card-2">
+      <div id="Support" class="Support">
+        <img src="https://www.chawadi.com/wp-content/uploads/2019/12/support-0.jpg" alt="support" style="width:100%">
+        <h2>Support</h2>
+        <p>
+          Need help? Click here!
+        </p>
+      </div>
+    </div>
   </main>
-  <footer>
-    <h2>Made with ❤️️ by Flight Finder</h2>
-    <p>
-      &copy; 2020 Flight Finder Services, Inc.
-    </p>
-  </footer>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -85,6 +95,12 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <footer>
+    <h2>Made with ❤️️ by Flight Finder</h2>
+    <p>
+      &copy; 2020 Flight Finder Services, Inc.
+    </p>
+  </footer>
 </body>
 
 </html>

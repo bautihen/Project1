@@ -1,12 +1,13 @@
 // we'll need two variables, one for each city on each end of the flight
 var departure;
 var destination;
+var cheapFlights = $("#CheapFlights");
 var airports = $("#Airports");
 var selectAirports = $("<form>");
 var airportsContainer = $("<figure>");
-var cheapFlights = $("#CheapFlights");
 
-// submit button is attached the div with ID: flightform
+
+// submit button is attached the div with ID: GetAirports
 $("#GetAirports").on('submit', function (event) {
 	event.preventDefault();
 	// empty out the section for the new incoming stuff
